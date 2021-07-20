@@ -1,0 +1,28 @@
+{
+	"name": "w4s/w4s-php",
+	"description": "Developer Wallet4Sales By Salvador",
+	"authors": [
+		{
+			"name": "Salvador Silva",
+			"email": "geanpearre94@gmail.com"
+		}
+	],
+	"homepage": "https://github.com/gean94/Wallet4Sales",
+	"keywords": [
+      "PHP",
+      "apple",
+      "ios",
+      "iphone",
+      "ipad",
+      "passbook",
+      "wallet"
+   ],
+	"type": "library",
+	"autoload": {
+		"psr-4": { "Wallet4SalesPHP\\" : "src/Wallet4SalesPHP/" }
+	},
+	"require": {
+      "php": ">=7.0",
+      "ext-zip": "*"
+   	}
+}
