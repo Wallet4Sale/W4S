@@ -6,7 +6,7 @@ require __DIR__ . '/../../vendor/autoload.php';
 
 /**
  * Class Wallet4Sales.
- */
+*/
 class Wallet4Sales
 {
 
