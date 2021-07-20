@@ -5,7 +5,7 @@ namespace Wallet4SalesPHP;
 require __DIR__ . '/../../vendor/autoload.php';
 
 /**
- * Class Wallet4Sales.
+* Class Wallet4Sales.
 */
 class Wallet4Sales
 {
