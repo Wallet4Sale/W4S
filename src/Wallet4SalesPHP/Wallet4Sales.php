@@ -4,111 +4,20 @@ namespace Wallet4SalesPHP;
 
 require __DIR__ . '/../../vendor/autoload.php';
 
-// use ZipArchive;
-
 /**
- * Class PKPass.
+ * Class Wallet4Sales.
  */
 class Wallet4Sales
 {
-	/**
-	 * Holds the path to the certificate
-	 * Variable: string.
-	 */
-	protected $certPath;
-
-	/**
-	 * Name of the downloaded file.
-	 */
-	protected $name;
-
-	/**
-	 * Holds the files to include in the .pkpass
-	 * Variable: array.
-	 */
-	protected $files = [];
-
-	/**
-	 * Holds the remote file urls to include in the .pkpass
-	 * Variable: array.
-	 */
-	protected $remote_file_urls = [];
-
-	/**
-	 * Holds the json
-	 * Variable: class.
-	 */
-	protected $json;
-
-	/**
-	 * Holds the SHAs of the $files array
-	 * Variable: array.
-	 */
-	protected $shas;
-
-	/**
-	 * Holds the password to the certificate
-	 * Variable: string.
-	 */
-	protected $certPass = '';
-
-	/**
-	 * Holds the path to the WWDR Intermediate certificate
-	 * Variable: string.
-	 */
-	protected $wwdrCertPath = '';
-
-	/**
-	 * Holds the path to a temporary folder with trailing slash.
-	 */
-	protected $tempPath;
-
-	/**
-	 * Holds error info if an error occurred.
-	 */
-	private $sError = '';
-
-	/**
-	 * Holds a auto-generated uniqid to prevent overwriting other processes pass
-	 * files.
-	 */
-	private $uniqid = null;
-
-	/**
-	 * Holds array of localization details
-	 * Variable: array.
-	 */
-	protected $locales = [];
-
 
 	private $EndPoint = 'https://www.optimacrm.ai/OptimaWalletDev';
 
 	private $access_token;
-	protected $TempPathCertificates;
 
 	/**
-	 * PKPass constructor.
-	 *
-	 * @param string|bool $certPath
-	 * @param string|bool $certPass
-	 * @param string|bool $JSON
+	 * W4S constructor.
 	 */
-	// function __construct($certPath = false, $certPass = false, $JSON = false){
 	function __construct($access_token = false){
-			// var_dump($this->access_token);
-			// exit;
-			// $this->tempPath = sys_get_temp_dir() . '/';  // Must end with slash!
-			// $this->wwdrCertPath = __DIR__ . '/Certificate/AppleWWDRCA.pem';
-
-			// if($certPath != false) {
-			//     $this->setCertificate($certPath);
-			// }
-			// if($certPass != false) {
-			//     $this->setCertificatePassword($certPass);
-			// }
-			// if($JSON != false) {
-			//     $this->setData($JSON);
-			// }
 		if ($this->access_token != false) {
 			$this->setAccesToken($access_token);
 		}
