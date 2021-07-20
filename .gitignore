@@ -1,9 +1,9 @@
 /local
 /vendor
 /test
-/composer.lock
+composer.lock
 /composer.local.*
-/composer.phar
+composer.phar
 /coverage.clover
 .DS_Store
 /.idea
