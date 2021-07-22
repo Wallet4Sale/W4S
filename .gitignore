@@ -1,6 +1,7 @@
 /local
 /vendor
 /test
+test.php
 composer.lock
 /composer.local.*
 composer.phar
