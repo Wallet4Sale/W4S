@@ -85,7 +85,11 @@ class Wallet4Sales
 		return $this->doQueryDev("CreateCSR");
 	}
 
-	public function setAccesToken($access_token){
+	public function setAccesToken($access_token) {
 		$this->access_token = $access_token;
+	}
+
+	public function CreateTemplate($data) {
+		return $this->doQueryDev("Template/New", $data);
 	}
 }
