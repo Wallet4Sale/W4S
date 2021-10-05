@@ -11,7 +11,7 @@ require __DIR__ . '/../../vendor/autoload.php';
 class Wallet4Sales
 {
 
-	private $EndPoint = 'https://www.optimacrm.ai/OptimaWalletDev';
+	private $EndPoint = 'https://www.w4s.ai/apiwallet4sales';
 
 	private $access_token;
 
@@ -74,8 +74,8 @@ class Wallet4Sales
 			return $response;
 	}
 
-	public function CreatePass($data) {
-		return $this->doQueryDev("CreatePassDev", $data);
+	public function CreatePass($CampaignCode, $data) {
+		return $this->doQueryDev("{$CampaignCode}/Pass/New", $data);
 	}
 
 	public function LoadCertificate($Cerb64) {
@@ -92,5 +92,9 @@ class Wallet4Sales
 
 	public function CreateTemplate($data) {
 		return $this->doQueryDev("Template/New", $data);
+	}
+
+	public function CreateCampaign($data) {
+		return $this->doQueryDev("Campaign/New", $data);
 	}
 }

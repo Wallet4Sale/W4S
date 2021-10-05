@@ -1,7 +1,10 @@
 /local
 /vendor
 /test
+/Certificates
 test.php
+PruebaAPI.php
+/Pruebas
 composer.lock
 /composer.local.*
 composer.phar
