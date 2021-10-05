@@ -74,6 +74,10 @@ class Wallet4Sales
 			return $response;
 	}
 
+	public function setAccesToken($access_token) {
+		$this->access_token = $access_token;
+	}
+
 	public function CreatePass($CampaignCode, $data) {
 		return $this->doQueryDev("{$CampaignCode}/Pass/New", $data);
 	}
@@ -86,15 +90,15 @@ class Wallet4Sales
 		return $this->doQueryDev("CreateCSR");
 	}
 
-	public function setAccesToken($access_token) {
-		$this->access_token = $access_token;
-	}
-
 	public function CreateTemplate($data) {
 		return $this->doQueryDev("Template/New", $data);
 	}
 
 	public function CreateCampaign($data) {
 		return $this->doQueryDev("Campaign/New", $data);
+	}
+
+	public function UploadImage($ImageType,$data){
+		return $this->doQueryDev("{$ImageType}/UploadImg", $data);
 	}
 }
