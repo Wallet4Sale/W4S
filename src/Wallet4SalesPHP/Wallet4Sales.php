@@ -97,3 +97,4 @@ class Wallet4Sales
 	public function CreateCampaign($data) {
 		return $this->doQueryDev("Campaign/New", $data);
 	}
+}
