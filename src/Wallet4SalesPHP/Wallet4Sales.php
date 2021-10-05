@@ -93,8 +93,3 @@ class Wallet4Sales
 	public function CreateTemplate($data) {
 		return $this->doQueryDev("Template/New", $data);
 	}
-
-	public function CreateCampaign($data) {
-		return $this->doQueryDev("Campaign/New", $data);
-	}
-}
