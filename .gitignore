@@ -1,7 +1,12 @@
 /local
 /vendor
 /test
-/Certificates
+/Certificates/Cer_1.cer
+/Certificates/Cer_1.p12
+/Certificates/Cer_1.pem
+Cer_1.cer
+Cer_1.p12
+Cer_1.pem
 test.php
 PruebaAPI.php
 /Pruebas
