@@ -7,7 +7,7 @@
 			"email": "geanpearre94@gmail.com"
 		}
 	],
-	"homepage": "https://github.com/gean94/Wallet4Sales",
+	"homepage": "https://github.com/Wallet4Sales/W4S/tree/master",
 	"keywords": [
       "PHP",
       "apple",
@@ -15,7 +15,8 @@
       "iphone",
       "ipad",
       "passbook",
-      "wallet"
+      "wallet",
+      "android"
    ],
 	"type": "library",
 	"autoload": {
