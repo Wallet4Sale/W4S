@@ -69,10 +69,10 @@ $data['Content'] = array(
 
 $data['IconImage'] = "IconCode or Url";
 
-$access_token = '{Your API_KEY}';
+$API_KEY = '{Your API_KEY}';
 
 $w4s = new Wallet4Sales();
-$w4s->setAccesToken($access_token);
+$w4s->setAccesToken($API_KEY);
 $query = $w4s->CreateTemplate($data);
 print_r($query);
 
@@ -96,6 +96,44 @@ Este template se creará en su panel de administrador con un código el cuál lo
 | TemplateName | string | Required. Nombre del template que se va a crear.
 | Description | localizable string | Required. Brief description of the pass, used by the iOS accessibility technologies. Don’t try to include all of the data on the pass in its description, just include enough detail to distinguish passes of the same type.
 | Content | array | Required. Contenido del pase según la documentación de Wallet4Sales.
+
+### Load Certificate
+
+Para subir un certificado, debe descargar un CSR en nuestra plataforma o solicitándolo con el siguiente método:
+
+```php
+require __DIR__.'/vendor/autoload.php';
+
+use Wallet4SalesPHP\Wallet4Sales;
+
+$w4s = new Wallet4Sales();
+$w4s->setAccesToken($API_KEY);
+
+$query = $w4s->CreateCSR();
+print_r($query);
+```
+
+La solicitud retorna una solicitud de firma la cual se tiene que subir a su cuenta [Apple Developer](https://developer.apple.com/) para emitir su certificado.
+
+## Cargando su certificado (CER)
+
+```php
+require __DIR__.'/vendor/autoload.php';
+
+use Wallet4SalesPHP\Wallet4Sales;
+
+$cer = 'Certificates/pass.cer';
+$json = array(
+  "certificate" => base64_encode(file_get_contents($cer))
+);
+
+$w4s = new Wallet4Sales();
+$w4s->setAccesToken($API_KEY);
+
+$query = json_decode($w4s->LoadCertificate($json),true);
+print_r($query);
+```
+
 
 ### Create Campaign
 
