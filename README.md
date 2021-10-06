@@ -81,7 +81,7 @@ print_r($query);
 Este template se creará en su panel de administrador con un código el cuál lo usará para las siguientes solicitudes tales como crear una campaña para su acción de marketing.
 
 
-#### Tabla de contenidos para un Template
+## Tabla de contenidos para un Template
 
 | Key name | Type | Descripción |
 | --- | --- | --- |
@@ -97,7 +97,7 @@ Este template se creará en su panel de administrador con un código el cuál lo
 | Description | localizable string | Required. Brief description of the pass, used by the iOS accessibility technologies. Don’t try to include all of the data on the pass in its description, just include enough detail to distinguish passes of the same type.
 | Content | array | Required. Contenido del pase según la documentación de Wallet4Sales.
 
-## Load Certificate
+# Load Certificate
 
 Para subir un certificado, debe descargar un CSR en nuestra plataforma o solicitándolo con el siguiente método:
 
