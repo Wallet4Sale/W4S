@@ -81,7 +81,8 @@ print_r($query);
 Este template se creará en su panel de administrador con un código el cuál lo usará para las siguientes solicitudes tales como crear una campaña para su acción de marketing.
 
 
-##Tabla de contenidos para un Template
+#### Tabla de contenidos para un Template
+
 | Key name | Type | Descripción |
 | --- | --- | --- |
 | BackgroundColor | color, as a string | Required. Background color of the pass, specified as an CSS-style RGB triple. For example, rgb(23, 187, 82).
