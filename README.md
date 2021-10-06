@@ -32,70 +32,67 @@ composer install
 This SDK and its dependencies will be installed under `./vendor`.
 
 
-# Accediendo vía Curl
-Para acceder vía Curl, se debe ingresar el API_KEY correspondiente a tu usuario
-Hay que aclarar que muchos de los parámetros POST que se están enviando no son campos obligatorios, esto depende del tipo de pase que se vaya a crear.
-```cmd
-curl --location --request POST 'https://www.w4s.ai/apiwallet4sales/Template/New' \
---header 'Content-Type: application/octet-stream' \
---header 'Authorization: Bearer {API_KEY}' \
---data-raw '{
-  "BackgroundColor": "rgb(255,255,255)",
-  "ForegroundColor": "rgb(0, 0, 0)",
-  "LabelColor": "rgb(0, 0, 0)",
-  "OrganizationName": "{OrganizationName}",
-  "PassTypeIdentifier": "{PassTypeIdentifier}",
-  "TeamIdentifier": "{TeamIdentifier}",
-  "PassType": 2,
-  "CertificateID": {CertificateID},
-  "TemplateName": "{TemplateName}",
-  "Description": "{Description}",
-  "SuppressStripShine": true,
-  "LogoText": "",
-  "Content": {
-    "Items": {
-      "bodyHeader": [
-        {
-          "label": "Header",
-          "value": "",
-          "LabelIsDinamic": true,
-          "ValueIsDinamic": true,
-          "ChangeMessage": "",
-        }
-      ],
-      "bodyPrimary": [
-        {
-            "label": "OFFER",
-            "value": "",
-            "LabelIsDinamic": true,
-            "ValueIsDinamic": true,
-            "ChangeMessage": "",
-        }
-      ],
-      "bodyBack": [
-        {
-          "label": "Email",
-          "value": "test@email.com",
-          "LabelIsDinamic": true,
-          "ValueIsDinamic": true,
-          "ChangeMessage": "",
-        }
-      ]
-    }
-  },
-  "Barcode":{
-    "TypeBarcode": "Aztec",
-    "BarcodeMessage": "{BarcodeMessage}",
-    "BarcodeMessageEncoding": "UTF-8",
-    "BarcodeAltText": "{SerialNumber}"
-  },
-  "IconImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQceDA8nEhAB_tnLfBhy9V6imuQFzxkrzYDng&usqp=CAU",
-  "RelevantDate": "2021-08-24T15:52+00:00",
-  "TransitType" : "Air"
-}'
+# Creando un Template
+Para crear un nuevo Template dentro de su plataforma, tiene que ya tener su API_KEY para cualquier solicitud a nuestro sistema.
+Este se adjunta con el encabezado `Authorization: Bearer {API_KEY}`.
+
+```php
+
+require __DIR__.'/vendor/autoload.php';
+
+use Wallet4SalesPHP\Wallet4Sales;
+
+$data['BackgroundColor'] = "rgb(255,255,255)";
+$data['ForegroundColor'] = "rgb(0, 0, 0)";
+$data['LabelColor'] = "rgb(0, 0, 0)";
+$data['OrganizationName'] = "Test";
+$data['PassTypeIdentifier'] = "Change this";
+$data['TeamIdentifier'] = "Change this";
+$data['PassType'] = {PASS_TYPE_ID};
+$data['CertificateID'] = {CERTIFICATE_ID};
+$data['TemplateName'] = "{TEMPLATE_NAME}";
+$data['Description'] = "A little description";
+$data['Content'] = array(
+  "Items" => array(
+    "bodyHeader" => array(
+      array(
+        "label" => "String",
+        "value" => "String",
+        "LabelIsDinamic" => bool,
+        "ValueIsDinamic" => bool,
+        "ChangeMessage" => "string",
+        "TextAlign" => "string"
+      )
+    )
+  )
+);
+
+$data['IconImage'] = "IconCode or Url";
+
+$access_token = '{Your API_KEY}';
+
+$w4s = new Wallet4Sales();
+$w4s->setAccesToken($access_token);
+$query = $w4s->CreateTemplate($data);
+print_r($query);
+
 ```
 
-Este template se creará en su panel de administrador con un código el cuál lo usará para los siguientes pasos cómo crear una campaña para su acción de marketing.
+Este template se creará en su panel de administrador con un código el cuál lo usará para las siguientes solicitudes tales como crear una campaña para su acción de marketing.
+
+| Key name | Type | Descripción |
+| --- | --- | --- |
+| BackgroundColor | color, as a string | Required. Background color of the pass, specified as an CSS-style RGB triple. For example, rgb(23, 187, 82).
+| ForegroundColor | color, as a string | Required. Foreground color of the pass, specified as a CSS-style RGB triple. For example, rgb(100, 10, 110).
+| LabelColor | color, as a string | Required. Color of the label text, specified as a CSS-style RGB triple. For example, rgb(255, 255, 255).
+| OrganizationName | string | Required. Display name of the organization that originated and signed the pass.
+| PassTypeIdentifier | string | Required. Pass type identifier, as issued by Apple. The value must correspond with your signing certificate.
+| TeamIdentifier | string | Required. Team identifier of the organization that originated and signed the pass, as issued by Apple.
+| PassType | integer | Required. EL ID del tipo de pase que se creará. Por ejemplo 2.
+| CertificateID | integer | Required. EL ID del Certificado que ha subido o del propio sistema.
+| TemplateName | string | Required. Nombre del template que se va a crear.
+| Description | localizable string | Required. Brief description of the pass, used by the iOS accessibility technologies. Don’t try to include all of the data on the pass in its description, just include enough detail to distinguish passes of the same type.
+| Content | array | Required. Contenido del pase según la documentación de Wallet4Sales.
 
 ### Create Campaign
 
