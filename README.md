@@ -97,7 +97,7 @@ Este template se creará en su panel de administrador con un código el cuál lo
 | Description | localizable string | Required. Brief description of the pass, used by the iOS accessibility technologies. Don’t try to include all of the data on the pass in its description, just include enough detail to distinguish passes of the same type.
 | Content | array | Required. Contenido del pase según la documentación de Wallet4Sales.
 
-### Load Certificate
+## Load Certificate
 
 Para subir un certificado, debe descargar un CSR en nuestra plataforma o solicitándolo con el siguiente método:
 
@@ -115,7 +115,9 @@ print_r($query);
 
 La solicitud retorna una solicitud de firma la cual se tiene que subir a su cuenta [Apple Developer](https://developer.apple.com/) para emitir su certificado.
 
-## Cargando su certificado (CER)
+### Cargando su certificado (CER)
+
+Una vez emitido su certificado en su cuenta Apple Developers, podrá subirlo a nuestro sistema y este le devolverá un `CertificateID` que lo usará para crear su `Template`.
 
 ```php
 require __DIR__.'/vendor/autoload.php';
