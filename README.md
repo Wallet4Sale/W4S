@@ -85,17 +85,18 @@ Este template se creará en su panel de administrador con un código el cuál lo
 
 | Key name | Type | Descripción |
 | --- | --- | --- |
-| BackgroundColor | color, as a string | Required. Background color of the pass, specified as an CSS-style RGB triple. For example, rgb(23, 187, 82).
-| ForegroundColor | color, as a string | Required. Foreground color of the pass, specified as a CSS-style RGB triple. For example, rgb(100, 10, 110).
-| LabelColor | color, as a string | Required. Color of the label text, specified as a CSS-style RGB triple. For example, rgb(255, 255, 255).
-| OrganizationName | string | Required. Display name of the organization that originated and signed the pass.
-| PassTypeIdentifier | string | Required. Pass type identifier, as issued by Apple. The value must correspond with your signing certificate.
-| TeamIdentifier | string | Required. Team identifier of the organization that originated and signed the pass, as issued by Apple.
-| PassType | integer | Required. EL ID del tipo de pase que se creará. Por ejemplo 2.
-| CertificateID | integer | Required. EL ID del Certificado que ha subido o del propio sistema.
-| TemplateName | string | Required. Nombre del template que se va a crear.
-| Description | localizable string | Required. Brief description of the pass, used by the iOS accessibility technologies. Don’t try to include all of the data on the pass in its description, just include enough detail to distinguish passes of the same type.
-| Content | array | Required. Contenido del pase según la documentación de Wallet4Sales.
+| BackgroundColor | color, as a string | Required. Background color of the pass, specified as an CSS-style RGB triple. For example, rgb(23, 187, 82).|
+| ForegroundColor | color, as a string | Required. Foreground color of the pass, specified as a CSS-style RGB triple. For example, rgb(100, 10, 110).|
+| LabelColor | color, as a string | Required. Color of the label text, specified as a CSS-style RGB triple. For example, rgb(255, 255, 255).|
+| OrganizationName | string | Required. Display name of the organization that originated and signed the pass.|
+| PassTypeIdentifier | string | Required. Pass type identifier, as issued by Apple. The value must correspond with your signing certificate.|
+| TeamIdentifier | string | Required. Team identifier of the organization that originated and signed the pass, as issued by Apple.|
+| PassType | integer | Required. EL ID del tipo de pase que se creará. Por ejemplo 2.|
+| CertificateID | integer | Required. EL ID del Certificado que ha subido o del propio sistema.|
+| TemplateName | string | Required. Nombre del template que se va a crear.|
+| Description | localizable string | Required. Brief description of the pass, used by the iOS accessibility technologies. Don’t try to include all of the data on the pass in its description, just include enough detail to distinguish passes of the same type.|
+| Content | array | Required. Contenido del pase según la documentación de Wallet4Sales.|
+| Items | array | Required. Items del pase según la documentación de Wallet4Sales. Puede abarcar los siguientes valores: `bodyHeader`, `bodyBack`, `bodyPrimary`, `bodySecondary`, `bodyAuxiliary`, `bodyBack`|
 
 # Load Certificate
 
@@ -136,6 +137,8 @@ $query = json_decode($w4s->LoadCertificate($json),true);
 print_r($query);
 ```
 
+
+# Load Image
 
 ### Create Campaign
 
