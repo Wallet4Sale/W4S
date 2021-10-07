@@ -1,19 +1,17 @@
 # Wallet4Sales v1 SDK Quickstart
-**This quckstart is for the Wallet4Sales v1 [platform](https://www.wallet4sales.com/)**
+**Quickstart for Wallet4Sales v1 [platform](https://www.wallet4sales.com/)**
 
 
 ## Overview
 
-Esta guía de inicio está diseñada para que los desarrolladores se pongan en marcha rápidamente dentro del entorno de Wallet4Sales v1 mediante PHP.
-Si cree que hay algunas otras mejores formas en que podemos mejorar nuestra documentación, no dude en crear una solicitud o escribirnos a nuestro correo: support@wallet4sales.com.
+This quickstart guide is designed for developers to run rapidly within the Wallet4Sales v1 environment using PHP. For further information please feel free to create a request or write to us at: support@wallet4sales.com.
 
 
-##  Autenticación
-Nuestro sistema usa una autenticación por cada cuenta de usuario que se crear, por lo tanto, antes de solicitar su API_KEY deberá crearse una cuenta dentro de nuestra [platforma](https://www.wallet4sales.com/)
+##  Authentication
+Our system uses an authentication process for each user account. You need to create your account before requesting your API_KEY. Please click here to [create your account](https://www.wallet4sales.com/)
 
 #### Get Your API Keys
-Dentro de su cuenta, tiene que ir a su perfil de usuario y encontrará un botón con una solicitud a su API_KEY. Al darle click, se le enviará un correo a la cuenta que ha confirmado
-con esta creadencial.
+Log to your account, go to your user profile and click the button to request your API_KEY. An email will be sent to the account you confirmed with your credentials.
 
 
 ### Composer
@@ -32,9 +30,8 @@ composer install
 This SDK and its dependencies will be installed under `./vendor`.
 
 
-# Creando un Template
-Para crear un nuevo Template dentro de su plataforma, tiene que ya tener su API_KEY para cualquier solicitud a nuestro sistema.
-Este se adjunta con el encabezado `Authorization: Bearer {API_KEY}`.
+# Create a new Template
+To create a new Template, you will need your API_KEY to make a request to our system. This will be attached to the `Authorization header: Bearer {API_KEY}`.
 
 ```php
 
@@ -78,10 +75,10 @@ print_r($Template);
 
 ```
 
-Este template se creará en su panel de administrador con un código el cuál lo usará para las siguientes solicitudes tales como crear una campaña para su acción de marketing.
+This template will be created in your administrator panel with a code useful for your next requests such as creating a campaign for your marketing action.
 
 
-## Tabla de contenidos para un Template
+## Table of contents for a Template
 
 | Key name | Type | Descripción |
 | --- | --- | --- |
@@ -95,12 +92,12 @@ Este template se creará en su panel de administrador con un código el cuál lo
 | CertificateID | integer | Required. EL ID del Certificado que ha subido o del propio sistema.|
 | TemplateName | string | Required. Nombre del template que se va a crear.|
 | Description | localizable string | Required. Brief description of the pass, used by the iOS accessibility technologies. Don’t try to include all of the data on the pass in its description, just include enough detail to distinguish passes of the same type.|
-| Content | array | Required. Contenido del pase según la documentación de Wallet4Sales.|
-| Items | array | Required. Items del pase según la documentación de Wallet4Sales. Puede abarcar los siguientes valores: `bodyHeader`, `bodyBack`, `bodyPrimary`, `bodySecondary`, `bodyAuxiliary`, `bodyBack`|
+| Content | array | Required. Pass content due to theWallet4Sales documentation.|
+| Items | array | Required. Items del pass due to Wallet4Sales documentation It can encompass the following values: `bodyHeader`, `bodyBack`, `bodyPrimary`, `bodySecondary`, `bodyAuxiliary`, `bodyBack`|
 
-# Load Certificate
+# Up Load a Certificate
 
-Para subir un certificado, debe descargar un CSR en nuestra plataforma o solicitándolo con el siguiente método:
+To upload a certificate, you must download a CSR on our platform or request one following the instruction:
 
 ```php
 require __DIR__.'/vendor/autoload.php';
@@ -114,11 +111,11 @@ $CSR = $w4s->CreateCSR();
 print_r($CSR);
 ```
 
-La solicitud retorna una solicitud de firma la cual se tiene que subir a su cuenta [Apple Developer](https://developer.apple.com/) para emitir su certificado.
+The request send you back a signature request which must be uploaded to your [Apple Developer](https://developer.apple.com/) account to issue your certificate.
 
-### Cargando su certificado (CER)
+### Upload your Certificate (CER)
 
-Una vez emitido su certificado en su cuenta Apple Developers, podrá subirlo a nuestro sistema y este le devolverá un `CertificateID` que lo usará para crear su `Template`.
+Once your certificate has been issued in your Apple Developers account, you can upload it to our system and it will return the CertificateID you need to create your `Template`.
 
 ```php
 require __DIR__.'/vendor/autoload.php';
@@ -140,6 +137,8 @@ print_r($Certificate);
 
 # Create Campaign
 
+Una campaña nos sirve para distribuir nuestros pases, desde una campaña podemos crear nuestra acción de marketing hacia nuestros clientes.
+
 ```php
 require __DIR__.'/vendor/autoload.php';
 
@@ -156,7 +155,7 @@ $Campaign = $w4s->CreateCampaign($data);
 print_r($Campaign);
 ```
 
-Te retornará un `CampaignCode` con lo cuál se podrá crear los pases a distribuir.
+It will send you back the `CampaignCode` you need to create and distribute passes.
 
 
 # Create Pass
