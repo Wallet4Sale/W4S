@@ -24,7 +24,7 @@ class Wallet4Sales
 		}
 	}
 
-	private function doQueryDev($path, $data = null) {
+	private function doQueryDev($path, $data = null, $Method = 'GET') {
 			// Prepare URL
 			$path = str_replace(" ", "%20", $path);
 			$url = $this->EndPoint. '/' . $path;
@@ -37,9 +37,8 @@ class Wallet4Sales
 			$ch = curl_init($url);
 		
 			$dataString = '';
-			$method = 'GET';
 			if($data != null) {
-				$method = "POST";
+				$Method = "POST";
 				uksort($data, 'strcmp');
 				$post = array();
 				
@@ -54,11 +53,10 @@ class Wallet4Sales
 				
 				// $dataString = substr($dataString, 0, -1);
 				// Set cURL post options
-				curl_setopt($ch,CURLOPT_CUSTOMREQUEST, $method);
+				curl_setopt($ch,CURLOPT_CUSTOMREQUEST, $Method);
 				curl_setopt ($ch, CURLOPT_POSTFIELDS, json_encode($post));
 			}
-
-			// curl_setopt($curl,CURLOPT_URL, $url);
+			
 			curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
 			curl_setopt($ch,CURLOPT_ENCODING, '');
 			curl_setopt($ch,CURLOPT_MAXREDIRS, 10);
@@ -78,8 +76,8 @@ class Wallet4Sales
 		$this->access_token = $access_token;
 	}
 
-	public function CreatePass($CampaignCode, $data) {
-		return $this->doQueryDev("{$CampaignCode}/Pass/New", $data);
+	public function CreatePass($CampaignCode, $data = null, $Method = 'POST') {
+		return $this->doQueryDev("{$CampaignCode}/Pass/New", $data, $Method);
 	}
 
 	public function LoadCertificate($Cerb64) {

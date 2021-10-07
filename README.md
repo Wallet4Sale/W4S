@@ -4,7 +4,7 @@
 
 ## Overview
 
-Esta guía de inicio está diseñada para que los desarrolladores se pongan en marcha rápidamente dentro del entorno de Wallet4Sales v1 mediante REST, Curl o PHP.
+Esta guía de inicio está diseñada para que los desarrolladores se pongan en marcha rápidamente dentro del entorno de Wallet4Sales v1 mediante PHP.
 Si cree que hay algunas otras mejores formas en que podemos mejorar nuestra documentación, no dude en crear una solicitud o escribirnos a nuestro correo: support@wallet4sales.com.
 
 
@@ -73,8 +73,8 @@ $API_KEY = '{Your API_KEY}';
 
 $w4s = new Wallet4Sales();
 $w4s->setAccesToken($API_KEY);
-$query = $w4s->CreateTemplate($data);
-print_r($query);
+$Template = $w4s->CreateTemplate($data);
+print_r($Template);
 
 ```
 
@@ -110,8 +110,8 @@ use Wallet4SalesPHP\Wallet4Sales;
 $w4s = new Wallet4Sales();
 $w4s->setAccesToken($API_KEY);
 
-$query = $w4s->CreateCSR();
-print_r($query);
+$CSR = $w4s->CreateCSR();
+print_r($CSR);
 ```
 
 La solicitud retorna una solicitud de firma la cual se tiene que subir a su cuenta [Apple Developer](https://developer.apple.com/) para emitir su certificado.
@@ -133,54 +133,42 @@ $json = array(
 $w4s = new Wallet4Sales();
 $w4s->setAccesToken($API_KEY);
 
-$query = json_decode($w4s->LoadCertificate($json),true);
-print_r($query);
+$Certificate = json_decode($w4s->LoadCertificate($json),true);
+print_r($Certificate);
 ```
 
 
-# Load Image
+# Create Campaign
 
-### Create Campaign
+```php
+require __DIR__.'/vendor/autoload.php';
 
-Para crear una campaña y asociarla con el template anterior, debe enviar un Curl similar al siguiente ejemplo:
+use Wallet4SalesPHP\Wallet4Sales;
 
-```cmd
-curl --location --request POST 'https://www.w4s.ai/OptimaWalletDev/Campaign/New' \
---header 'Authorization: Bearer {API_KEY}' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "Name" : "{Campaign_Name}",
-    "TemplateCode" : "{TemplateCode}",
-    "Description": "Una descripción corta",
-    "InitDay" : "2021-08-24T15:52+00:00",
-    "EndDay" : "2021-08-30T15:52+00:00",
-    "MaxDistance": "500",
-    "Locations": [
-    {
-      "locationlatitude": "40.0574881",
-      "locationlongitude": "0.0847931",
-      "locationAlert": "Cerca de la primera instalación",
-      "locationAlias" : "Point 1"
-    },
-    {
-      "locationlatitude": "0.0847931",
-      "locationlongitude": "40.0574881",
-      "locationAlert": "Cerca de la segunda instalación",
-      "locationAlias" : "Point 2"
-    }
-  ]
-}'
+$w4s = new Wallet4Sales();
+$w4s->setAccesToken($API_KEY);
+
+$data['Name'] = '{CAMPAIGN_NAME}';
+$data['TemplateCode'] = '{TEMPLATE_CODE}';
+$data['Description'] = '{DESCRIPTION}';
+
+$Campaign = $w4s->CreateCampaign($data);
+print_r($Campaign);
 ```
-Al igual que con el template, este endPoint nos devuelve un código de campaña para que podemos crear los pases en un futuro.
+
+Te retornará un `CampaignCode` con lo cuál se podrá crear los pases a distribuir.
 
 
-### Create Pass
-Para crear un pase, nos conectaremos al siguiente endPoint:
-```cmd
-curl --location --request POST 'https://www.w4s.ai/apiwallet4sales/{Campaign_Code}/Pass/New' \
---header 'Authorization: Bearer {API_KEY}' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "CardCode" : "{CardCode}"
-}'
+# Create Pass
+
+```php
+require __DIR__.'/vendor/autoload.php';
+
+use Wallet4SalesPHP\Wallet4Sales;
+
+$w4s = new Wallet4Sales();
+$w4s->setAccesToken($API_KEY);
+
+$Pass = $w4s->CreatePass('{CAMPAIGN_CODE}');
+print_r($Pass);
 ```
