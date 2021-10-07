@@ -1,4 +1,4 @@
-# Wallet4Sales v1 REST Quickstart
+# Wallet4Sales v1 SDK Quickstart
 **This quckstart is for the Wallet4Sales v1 [platform](https://www.wallet4sales.com/)**
 
 
