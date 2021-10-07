@@ -137,7 +137,7 @@ print_r($Certificate);
 
 # Create Campaign
 
-Una campaña nos sirve para distribuir nuestros pases, desde una campaña podemos crear nuestra acción de marketing hacia nuestros clientes.
+A marketing campaign helps us distribute passes. It allows us create your taylor made marketing action towards your clients.
 
 ```php
 require __DIR__.'/vendor/autoload.php';
