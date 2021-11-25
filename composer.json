@@ -18,6 +18,7 @@
 	},
 	"require": {
 		"php": ">=7.0",
-      		"ext-zip": "*"
+      		"ext-zip": "*",
+		"w4s/w4s-php": "1.0.0"
    	}
 }
