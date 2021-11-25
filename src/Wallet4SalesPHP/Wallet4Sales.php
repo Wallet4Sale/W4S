@@ -2,8 +2,6 @@
 
 namespace Wallet4SalesPHP;
 
-require __DIR__ . '/../../vendor/autoload.php';
-
 /**
  * Class Wallet4Sales Optima
  .
