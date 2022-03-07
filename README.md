@@ -12,7 +12,7 @@ Our system uses an authentication process for each user account. You need to cre
 
 #### Get Your API Keys
 Log to your account, go to your user profile and click the button to request your API_KEY. An email will be sent to the account you confirmed with your credentials.
-
+In case you cannot find a way to request your API_KEY, you can write to us at admin@wallet4sales.com to request your credential and connect to our service.
 
 ### Composer
 The Wallet4Sales SDK uses composer to manage dependencies. Visit the composer documentation to learn how to install composer.
