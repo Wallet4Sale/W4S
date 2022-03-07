@@ -27,8 +27,8 @@
 		"ext-zip": "*"
 	},
 	"extra": {
-        "branch-alias": {
-            "dev-master": "1.x-dev"
-        }
-    }
+		"branch-alias": {
+			"dev-master": "1.x-dev"
+		}
+	}
 }
