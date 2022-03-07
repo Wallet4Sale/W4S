@@ -16,7 +16,7 @@ class Wallet4Sales
 	/**
 	 * W4S constructor.
 	 */
-	function __construct($access_token = false){
+	public function __construct($access_token = false){
 		if ($this->access_token != false) {
 			$this->setAccesToken($access_token);
 		}
