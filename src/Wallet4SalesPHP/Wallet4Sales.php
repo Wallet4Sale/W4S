@@ -10,7 +10,7 @@ namespace Wallet4SalesPHP;
 class Wallet4Sales
 {
 
-	private $EndPoint = 'https://www.optimacrm.ai/wallet4sales/apiwallet4sales/';
+	private $EndPoint = 'https://www.w4s.ai/wallet4sales/apiwallet4sales/';
 
 	private $access_token;
 
