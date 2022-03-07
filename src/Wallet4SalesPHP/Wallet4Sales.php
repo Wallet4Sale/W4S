@@ -11,7 +11,7 @@ require __DIR__ . '/../../vendor/autoload.php';
 class Wallet4Sales
 {
 
-	private $EndPoint = 'https://www.optimacrm.ai/wallet4sales/apiwallet4sales/';
+	private $EndPoint = 'https://w4s.ai/wallet4sales/apiwallet4sales/';
 
 	private $access_token;
 
