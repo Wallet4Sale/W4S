@@ -3,26 +3,28 @@
 	"description": "Developer Wallet4Sales By Salvador",
 	"homepage": "https://www.wallet4sales.com/",
 	"keywords": [
-	  "PHP",
-	  "apple",
-	  "ios",
-	  "iphone",
-	  "ipad",
-	  "passbook",
-	  "wallet",
-	  "android"
+		"PHP",
+		"apple",
+		"ios",
+		"iphone",
+		"ipad",
+		"passbook",
+		"wallet",
+		"android"
 	],
 	"type": "library",
 	"autoload": {
-		"psr-4": { "Wallet4SalesPHP\\" : "src/Wallet4SalesPHP/" }
+	"psr-4": { 
+			"Wallet4SalesPHP\\" : "src/Wallet4SalesPHP/"
+		}
 	},
 	"require": {
 		"php": ">=7.0",
-      		"ext-zip": "*"
-   	},
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.x-dev"
-        }
-    }
+		"ext-zip": "*"
+	},
+	"extra": {
+		"branch-alias": {
+			"dev-master": "1.x-dev"
+		}
+	}
 }
