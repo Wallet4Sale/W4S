@@ -19,5 +19,10 @@
 	"require": {
 		"php": ">=7.0",
       		"ext-zip": "*"
-   	}
+   	},
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        }
+    }
 }
