@@ -4,7 +4,6 @@ namespace Wallet4SalesPHP;
 
 /**
  * Class Wallet4Sales Optima System
- .
 */
 class Wallet4Sales
 {
