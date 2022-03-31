@@ -8,7 +8,7 @@ namespace Wallet4SalesPHP;
 class Wallet4Sales
 {
 
-	private $EndPoint = 'https://www.w4s.ai/wallet4sales/apiwallet4sales/';
+	private $EndPoint = 'https://w4s.ai/wallet4sales/apiwallet4sales';
 
 	private $access_token;
 
@@ -32,6 +32,7 @@ class Wallet4Sales
 
 			// initiate curl
 			$ch = curl_init($url);
+			// var_dump($url);
 		
 			$dataString = '';
 			if($data != null) {
