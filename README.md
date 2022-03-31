@@ -64,7 +64,7 @@ $data['Content'] = array(
   )
 );
 
-$data['IconImage'] = "IconCode or Url";
+$data['Images']['strip'] = "IconCode or Url";
 
 $API_KEY = '{Your API_KEY}';
 
@@ -95,7 +95,7 @@ This template will be created in your administrator panel with a code useful for
 | Content | array | Required. Pass content due to theWallet4Sales documentation.|
 | Items | array | Required. Items del pass due to Wallet4Sales documentation It can encompass the following values: `bodyHeader`, `bodyBack`, `bodyPrimary`, `bodySecondary`, `bodyAuxiliary`, `bodyBack`|
 
-# Up Load a Certificate
+# Upload a Certificate
 
 To upload a certificate, you must download a CSR on our platform or request one following the instruction:
 
